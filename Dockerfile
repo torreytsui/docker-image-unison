@@ -26,6 +26,7 @@ ENV TZ="Europe/Helsinki" \
 
 COPY entrypoint.sh /entrypoint.sh
 COPY precopy_appsync.sh /usr/local/bin/precopy_appsync
+COPY recover.sh /usr/local/bin/recover
 COPY monitrc /etc/monitrc
 
 RUN mkdir -p /docker-entrypoint.d \
@@ -35,6 +36,7 @@ RUN mkdir -p /docker-entrypoint.d \
  && touch /tmp/unison.log \
  && chmod u=rw,g=rw,o=rw /tmp/unison.log \
  && chmod +x /usr/local/bin/precopy_appsync \
+ && chmod +x /usr/local/bin/recover \
  && chmod u=rw,g=,o= /etc/monitrc
 
 COPY supervisord.conf /etc/supervisord.conf
