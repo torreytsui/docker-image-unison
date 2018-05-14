@@ -14,6 +14,6 @@ OWNER_UID=${OWNER_UID:-0}
 
 echo "Start recovery sync state with unison using fastcheck=false" >> /tmp/unison.log
 # we use ruby due to http://mywiki.wooledge.org/BashFAQ/050
-time ruby -e '`unison #{ENV["UNISON_ARGS"]} #{ENV["UNISON_SYNC_PREFER"]} #{ENV["UNISON_EXCLUDES"]} -numericids -auto -batch -fastcheck false /host_sync /app_sync -logfile /tmp/unison.log`'
+time ruby -e '`unison #{ENV["UNISON_ARGS"]} #{ENV["UNISON_SYNC_PREFER"]} #{ENV["UNISON_EXCLUDES"]} -numericids -auto -times -fastcheck false /host_sync /app_sync -logfile /tmp/unison.log`'
 echo "Finish recovery sync state with using unison fastcheck=false" >> /tmp/unison.log
 
